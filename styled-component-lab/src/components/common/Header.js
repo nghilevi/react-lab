@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Link} from 'react-router-dom'
+import {Link as ReactRouterDomLink, useLocation} from 'react-router-dom'
 
 const HeaderWrapper = styled.header`
     height: 60px;
@@ -24,20 +24,32 @@ const Menu = styled.nav`
     top: initial;
 `
 
+// we dont want to pass isActive to the normal Link/ReactRouterDomLink component
+// the isActive will then never be set on Link component
+// this is to avoid 
+const Link = ({isActive, children, ...props}) => {
+    return (
+        <ReactRouterDomLink {...props}>{children}</ReactRouterDomLink>
+    )
+}
+
 const StyledLink = styled(Link)`
     padding: 4px 8px;
     display: block;
     text-align: center;
     box-sizing: border-box;
     margin: auto 0;
+    font-weight: ${p => p.isActive ? 'bold' : 'normal'};
 `
 
 export function Header(){
+    const {pathname} = useLocation()
+
     return(
         <HeaderWrapper>
             <Menu>
-                <StyledLink to="/">Home</StyledLink>
-                <StyledLink to="/login">Login</StyledLink> 
+                <StyledLink to="/" isActive={pathname === '/'}>Home</StyledLink>
+                <StyledLink to="/login" isActive={pathname === '/login'}>Login</StyledLink> 
             </Menu>
         </HeaderWrapper>
     )
