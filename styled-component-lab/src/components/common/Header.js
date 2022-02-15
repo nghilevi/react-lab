@@ -41,7 +41,7 @@ const Menu = styled.nav`
 
 // we dont want to pass isActive to the normal Link/ReactRouterDomLink component
 // the isActive will then never be set on Link component
-// this is to avoid 
+// this is to avoid an issue from React
 const Link = ({isActive, children, ...props}) => {
     return (
         <ReactRouterDomLink {...props}>{children}</ReactRouterDomLink>
