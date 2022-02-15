@@ -57,11 +57,30 @@ const StyledLink = styled(Link)`
     color: black
 `
 
+const MobileMenuIcon = styled.div`
+    margin: auto 0 auto auto; // when container is display flex, setting right 0 and left auto will push it to the right
+    width: 25px;
+    min-width: 25px;
+    padding: 5px;
+
+    >div{
+        height: 3px;
+        background: black;
+        margin: 5px 0;
+        width: 100%;
+    }
+`
+
 export function Header(){
     const {pathname} = useLocation()
 
     return(
         <HeaderWrapper>
+            <MobileMenuIcon>
+                <div />
+                <div />
+                <div />
+            </MobileMenuIcon>
             <Menu>
                 <StyledLink to="/" isActive={pathname === '/'}>Home</StyledLink>
                 <StyledLink to="/login" isActive={pathname === '/login'}>Login</StyledLink> 
