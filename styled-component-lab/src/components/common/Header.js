@@ -9,7 +9,8 @@ const HeaderWrapper = styled.header`
     padding: 0 16px;
     position: fixed;
     top: 0;
-    background-color: #eee;
+    background-image: linear-gradient(to right, #f8049c, #fdd54f);
+    border-bottom: 3px solid #fdd54f;
 `
 
 const Menu = styled.nav`
@@ -22,6 +23,8 @@ const Menu = styled.nav`
     left: 0;
     padding: 8px;
     box-sizing: border-box;
+    background-color: white;
+    border-bottom: 3px solid #fdd54f;
 
     @media (min-width: 768px){
         display: flex;
@@ -51,6 +54,7 @@ const StyledLink = styled(Link)`
     box-sizing: border-box;
     margin: auto 0;
     font-weight: ${p => p.isActive ? 'bold' : 'normal'};
+    color: black
 `
 
 export function Header(){
