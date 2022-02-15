@@ -39,9 +39,6 @@ export function PasswordInput(props){
                     {showPassword ? 'Hide' : 'Show'}
                 </ToggleButton>
             </PasswordInputWrapper>
-            <div> 
-                {showPassword ? props.value : ''}
-            </div> 
         </>
     )
 }
