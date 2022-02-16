@@ -16,7 +16,7 @@ const Form = styled.form`
         text-align: center;
     }
 
-    >${Button}{ // ref direct child component
+    >${Button}:first-of-type{ // ref direct child component
         margin-top: 40px;
     }
 
@@ -83,7 +83,7 @@ export default function Login(){
                 }
                 <Button large type="submit" disabled={loading}> 
                         {loading ? 'Loading...' : 'Login'}
-                    </Button>  
+                </Button>  
                 {!loading && 
                 <>
                     <div className="alt-text">or</div>
