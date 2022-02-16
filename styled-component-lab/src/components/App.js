@@ -1,5 +1,5 @@
 
-import {createGlobalStyle} from 'styled-components'
+import {createGlobalStyle, ThemeProvider} from 'styled-components'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Login from 'components/pages/Login'
 import Home from 'components/pages/Home'
@@ -14,9 +14,15 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+const theme = {
+  primaryColor: '#f8049c',
+  secondaryColor: '#fdd54f'
+}
+
 function App() {
   return (
-    <>
+    // styled-components will inject all of these theme variables as props to any styled component
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
@@ -24,7 +30,7 @@ function App() {
           <Route path="/" element={ <Home />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </ThemeProvider>
   );
 }
 
