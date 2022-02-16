@@ -27,6 +27,7 @@ const Menu = styled.nav`
     box-sizing: border-box;
     background-color: white;
     border-bottom: 3px solid #fdd54f;
+    background: ${p => p.theme.bodyBackgroundColor};;
 
     @media (min-width: 768px){
         display: flex;
@@ -56,7 +57,7 @@ const StyledLink = styled(Link)`
     box-sizing: border-box;
     margin: auto 0;
     font-weight: ${p => p.isActive ? 'bold' : 'normal'};
-    color: black
+    color: ${p => p.theme.bodyFontColor};
 `
 
 const MobileMenuIcon = styled.div`
@@ -67,7 +68,7 @@ const MobileMenuIcon = styled.div`
 
     >div{
         height: 3px;
-        background: black;
+        background: ${p => p.theme.bodyFontColor};;
         margin: 5px 0;
         width: 100%;
     }
