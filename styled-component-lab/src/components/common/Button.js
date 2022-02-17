@@ -1,4 +1,5 @@
 import styled, {css} from 'styled-components'
+import PropTypes from 'prop-types'
 
 const largeStyles = ({large}) => { // large is the prop
     if(large){
@@ -35,5 +36,16 @@ const Button = styled.button`
         color: #666
     }
 `
+/*
+    as our components grow, we may get lost in all these styles 
+    and not know what props we can actually pass into the styled component
+    -> documenting
+
+    for each of our props that we can pass into this button, we want to pass as a key to this obj
+*/
+Button.propTypes = {
+    large: PropTypes.bool,
+    secondary: PropTypes.bool
+}
 
 export {Button}
